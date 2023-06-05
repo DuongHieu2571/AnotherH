@@ -1,0 +1,19 @@
+version: '3.3'
+
+volumes:
+  data:
+
+services:
+  db:
+    image: 172.20.1.22/proxy-cache/bitnami/mariadb:latest
+    container_name: maria_db
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456aA@
+      MYSQL_DATABASE: lake_dev
+      MYSQL_USER: maria_user
+      MYSQL_PASSWORD: 123456aA@
+      ALLOW_EMPTY_PASSWORD: 1
+    ports:
+      - "3306:3306"
+    volumes:
+      - data:/var/lib/mysql
